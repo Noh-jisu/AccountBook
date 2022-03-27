@@ -23,10 +23,14 @@ class DateSearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(b.root)
 
+        // Datepicker를 선택하지 않아도 오늘날짜로 변수값 초기화
+        val nowDate = LocalDate.now().toString()
+        var nowDateStr:String = nowDate.replace("-","")
+
         // 시작날짜
-        var startDate = ""
+        var startDate = nowDateStr
         // 종료날짜
-        var endDate = ""
+        var endDate = nowDateStr
 
         // 시작날짜 변경
         b.starDate.setOnDateChangedListener { datePicker, year, month, date ->
